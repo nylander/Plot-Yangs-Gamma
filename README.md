@@ -3,8 +3,6 @@
 - Version: 08/29/2014 03:42:15 PM
 - By: Johan.Nylander\@{nrm|nbis}.se
 
-**TODO:** Fix `ylim` in the code! 
-
 
 ## Description
 
@@ -51,13 +49,8 @@ or perhaps
 
     > alphas <- c(0.1, 0.5, 1.0)
     > cols <- c("black", "blue", "red")
-    > plotYangGamma(alphas, lwd = 6, col = cols)
+    > plotYangGamma(alphas, lwd = 6, col = cols, file = "Yangs-Gamma.png")
 
-or why not
-
-    > plotYangGamma(lwd = 4, col = cols,
-                    xlim = c(0, 3.0), ylim = c(0, 2.0),
-                    file = "Yangs_Gamma.png")
 
 ## References:
 

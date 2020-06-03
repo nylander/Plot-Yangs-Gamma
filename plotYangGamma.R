@@ -2,7 +2,7 @@
 
     # Generate a png plot of the Gamma distribution with different alpha values.
     # Similar to Fig. 1 in Yang, Z. TREE, 11:367--372, 1996.
-    # Last modified: ons jun 03, 2020  10:34
+    # Last modified: ons jun 03, 2020  10:51
     # johan.nylander\@{nrm|nbis}.se
 
     # From Hillis et al., 1996. Mol. Systematics, p. 443:
