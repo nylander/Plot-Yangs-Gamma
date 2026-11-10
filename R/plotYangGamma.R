@@ -1,30 +1,10 @@
-"plotYangGamma" <- function(x, file = NULL, col = NULL, ...) {
-
-    # Generate a png plot of the Gamma distribution with different alpha values.
-    # Similar to Fig. 1 in Yang, Z. TREE, 11:367--372, 1996.
-    # Last modified: ons jun 03, 2020  10:59
-    # johan.nylander\@{nrm|nbis}.se
-
-    # From Hillis et al., 1996. Mol. Systematics, p. 443:
-    # "The Gamma distribution has two parameters,
-    # a shape parameter alpha, and a scale parameter beta.
-    # By setting beta to 1/alpha, a distribution with mean 1 is obtained."
-
-    # Usage:
-    #  plotYangGamma(x, file, col, ...)
-
-    # Arguments:
-    #  x: vector of alpha values. Default is c(0.1, 0.5, 1.0, 5.0, 20.0)
-    #  file: Output filename (PNG)
-    #  col: vector of colors to use. Default is rainbow(length(alphas)).
-    #  ...: Arguments to be passed to methods, such as graphical parameters
-    
+"plotYangGamma" <- function(x, file = NULL, col = NULL, ..., ylim = NULL) {
     if (missing(x)) {
         alphas <- c(0.1, 0.5, 1.0, 5.0, 20.0)
     } else {
         alphas <- x
     }
-    
+
     if (missing(col)) {
         cols <- rainbow(length(alphas))
     } else {
@@ -33,16 +13,7 @@
 
     s <- seq(0, 2, 0.01)
 
-    # find ylim
-    arguments <- list(...)
-    if ("ylim" %in% (names(arguments))) {
-        myYlim <- FALSE
-        Ylim <- as.vector(arguments["ylim"])
-    } else {
-        myYlim <- TRUE
-    }
-
-    if (myYlim) {
+    if (is.null(ylim)) {
         m <- vector()
         for (i in 1:length(alphas)) {
             a <- alphas[i]
@@ -57,13 +28,14 @@
             m[i] <- amax
         }
         Ylim <- c(0, max(m))
+    } else {
+        Ylim <- ylim
     }
 
     if (!is.null(file)) {
         png(file = file, width = 1200, height = 800, res = 150)
     }
 
-    # plot the first value
     a <- alphas[1]
     b <- 1/a
     plot(s,
@@ -79,7 +51,6 @@
          main = expression(paste(Gamma, "(", alpha, ",", beta, "=1/", alpha, ")", " distribution")),
          ...)
 
-    # add the rest
     if ( is.na(alphas[2]) ) {
         if (!is.null(file)) {
             legend(x = "topright", legend = alphas, col = cols, lty = 1, bty = "n", ...)
