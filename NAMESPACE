@@ -1,0 +1,9 @@
+export(plotYangGamma)
+
+importFrom(graphics,legend)
+importFrom(graphics,lines)
+importFrom(graphics,plot)
+importFrom(grDevices,dev.off)
+importFrom(grDevices,png)
+importFrom(grDevices,rainbow)
+importFrom(stats,dgamma)
