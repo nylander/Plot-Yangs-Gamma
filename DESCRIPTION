@@ -3,7 +3,7 @@ Type: Package
 Title: Plot Gamma Distributions for Among-Site Rate Variation
 Version: 0.1.0
 Authors@R: person("Johan", "Nylander",
-    email = "YOUR_EMAIL",
+    email = "johan.nylander@nrm.se",
     role = c("aut", "cre"))
 Description: Plot gamma distributions with different shape parameters
     and a mean of one to illustrate among-site substitution rate variation.
